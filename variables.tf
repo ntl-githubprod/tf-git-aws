@@ -1,33 +1,11 @@
-variable "aws_region" {
-  description = "AWS region to deploy resources into"
+# own remote-backend variables
+variable "bca-aws-master-ntl" {
+  description = "AWS S3 Bucket Name"
   type        = string
-  default     = "ap-southeast-1"
+  default     = "aws-s3-backend-tfstate"
 }
-variable "vpc_cidr" {
-  description = "CIDR block for VPC"
+variable "backend_dynamodb_table_name" {
+  description = "AWS DynamoDB Table Name"
   type        = string
-  default     = "10.0.0.0/16"
-}
-variable "azs" {
-  description = "availability zones to use in AWS region"
-  type        = list(string)
-  default     = ["ap-southeast-1a"]
-}
-variable "public_subnet_cidrs" {
-  description = "CIDR blocks for public subnets"
-  type        = list(string)
-  default = [
-    "10.0.128.0/20",
-    "10.0.144.0/20",
-    "10.0.160.0/20",
-  ]
-}
-variable "private_subnet_cidrs" {
-  description = "CIDR blocks for private subnets"
-  type        = list(string)
-  default = [
-    "10.0.0.0/19",
-    "10.0.32.0/19",
-    "10.0.64.0/19",
-  ]
+  default     = "aws-dynamodb-backend-tfstate"
 }
